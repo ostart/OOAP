@@ -1,0 +1,11 @@
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.csprojAssemblyReference.cache
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.csproj.CoreCompileInputs.cache
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.AssemblyInfoInputs.cache
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.AssemblyInfo.cs
+d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.deps.json
+d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.runtimeconfig.json
+d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.runtimeconfig.dev.json
+d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.dll
+d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.pdb
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.dll
+d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.pdb
