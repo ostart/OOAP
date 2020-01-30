@@ -1,73 +1,47 @@
-/* class BoundedStack<T>
-
-  // скрытые поля
-  private List<T> stack; // основное хранилище стека
-  private int peek_status; // статус запроса peek()
-  private int pop_status; // статус команды pop()
-  private int push_status; // статус команды push()
-  private int stack_size; // размер стека
-
+/*abstract class BoundedStack<T>
 
   // интерфейс класса, реализующий АТД Stack
-  public const int POP_NIL = 0;
-  public const int POP_OK = 1;
-  public const int POP_ERR = 2;
-  public const int PEEK_NIL = 0;
-  public const int PEEK_OK = 1;
-  public const int PEEK_ERR = 2;
-  public const int PUSH_NIL = 0;
-  public const int PUSH_OK = 1;
-  public const int PUSH_ERR = 2;
+  public const int POP_NIL = 0; // pop() ещё не вызывалась
+  public const int POP_OK = 1; // последняя pop() отработала нормально
+  public const int POP_ERR = 2; // стек пуст
 
-  public void Stack(int stackSize = 32) // конструктор
-    clear()
-    stack_size = stackSize
+  public const int PEEK_NIL = 0; // peek() ещё не вызывалась
+  public const int PEEK_OK = 1; // последняя peek() вернула корректное значение 
+  public const int PEEK_ERR = 2; // стек пуст
 
+  public const int PUSH_NIL = 0; // push() еще не вызывалась
+  public const int PUSH_OK = 1; // последняя push() добавила корректное значение
+  public const int PUSH_ERR = 2; // стек переполнен
 
-  public void push(T value)
-    if size() > stack_size
-        push_status = PUSH_ERR
-    else
-        stack.Append(value)
-        push_status = PUSH_OK
+  // конструктор
+  // предусловие: размер стека по умолчанию - 32 элемента
+  // постусловие: создан новый пустой стек на заданное число элементов
+  public BoundedStack<T> BoundedStack(int size);
+
+  // команды:
+  // предусловие: стек не переполнен; 
+  // постусловие: в стек добавлено новое значение
+  public void push(T value);
         
+  // предусловие: стек не пустой; 
+  // постусловие: из стека удалён верхний элемент
+  public void pop();
 
-  public void pop()
-    if size() > 0
-      stack.RemoveAt(-1)
-      pop_status = POP_OK
-    else
-      pop_status = POP_ERR
+  // постусловие: из стека удалятся все значения и установлены начальные статусы для предусловий push(), peek() и pop()
+  public void clear();
 
-  public void clear()
-    stack = [ ] // пустой список/стек
+  // запросы:
+  // предусловие: стек не пустой
+  public T peek();
 
-    // начальные статусы для предусловий push(), peek() и pop()
-    peek_status = PEEK_NIL
-    pop_status = POP_NIL
-    push_status = POP_NIL
+  public int size();
 
-  public T peek()
-    if size() > 0
-      result = stack[-1]
-      peek_status = PEEK_OK
-    else
-      result = 0
-      peek_status = PEEK_ERR
-    return result
+  public int get_pop_status();
 
-  public int size()
-    return stack.Length()
+  public int get_peek_status();
 
-  // запросы статусов
-  public int get_pop_status()
-    return pop_status
-
-  public int get_peek_status()
-    return peek_status
-
-  public int get_push_status()
-    return push_status */
+  public int get_push_status();
+*/
 
 public class BoundedStack<T>
 {

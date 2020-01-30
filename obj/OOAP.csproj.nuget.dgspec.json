@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\OOAP\\OOAP.csproj": {}
+    "d:\\Github\\OOAP\\OOAP.csproj": {}
   },
   "projects": {
-    "D:\\Github\\OOAP\\OOAP.csproj": {
+    "d:\\Github\\OOAP\\OOAP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\OOAP\\OOAP.csproj",
+        "projectUniqueName": "d:\\Github\\OOAP\\OOAP.csproj",
         "projectName": "OOAP",
-        "projectPath": "D:\\Github\\OOAP\\OOAP.csproj",
+        "projectPath": "d:\\Github\\OOAP\\OOAP.csproj",
         "packagesPath": "C:\\Users\\yodmin\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\OOAP\\obj\\",
+        "outputPath": "d:\\Github\\OOAP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
