@@ -71,6 +71,9 @@ abstract TwoWayList<T>: ParentList<T>
     // постусловие: курсор сдвинут на один узел влево
       public void left(); 
 
+      // запросы статусов (возможные значения статусов)
+      public int get_left_status(); // успешно; левее нету элемента
+
 abstract LinkedList<T>: ParentList<T>
 */
 public class Node<T>
@@ -324,7 +327,7 @@ public class ParentList<T>
         Head();
         do
         {
-            if(cursor.Value == value)
+            if(cursor.Value.Equals(value))
             {
                 find_status = FIND_OK;
                 return;
@@ -346,7 +349,7 @@ public class ParentList<T>
         if(Size() == 0)
         {
           get_status = GET_ERR;
-          return;
+          return default;
         }
         get_status = GET_OK;
         return cursor.Value;
