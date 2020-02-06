@@ -29,13 +29,15 @@ abstract class DynArray<T>
     // предусловие: индекс лежит в допустимых границах; 
     public T GetItem(int index);
 
+    public int Size(); // текущий размер массива 
+
 // запросы статусов (возможные значения статусов)
     public int Get_GetItem_status(); // успешно; индекс лежит вне допустимых границ
     public int Get_Insert_status(); // успешно; индекс лежит вне допустимых границ
     public int Get_Remove_status(); // успешно; индекс лежит вне допустимых границ
     public int Get_Replace_status(); // успешно; индекс лежит вне допустимых границ
 */
-
+using System;
 public class DynArray<T>
 {
     private int replace_status;
@@ -130,6 +132,11 @@ public class DynArray<T>
         }
         getItem_status = GETITEM_OK;
         return array[index];
+    }
+
+    public int Size()
+    {
+        return count;
     }
 
 // запросы статусов (возможные значения статусов)
