@@ -51,7 +51,6 @@ public class Queue<T>
 
     public void Dequeue()
     {
-        // выдача из головы
         if(Size() == 0)
             dequeue_status = DEQUEUE_EMP;
         else 
