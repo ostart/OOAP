@@ -9,9 +9,12 @@ abstract class Queue<T>
     // постусловие: элемент добавлен в очередь
     public void Enqueue(T item);
 
-// запросы
     // предусловие: очередь не пуста
-    public T Dequeue();
+    // постусловие: из очереди в буфер перемещен головной элемент. Размер очереди уменьшен на единицу
+    public void Dequeue();
+
+// запросы
+    public T Get(); // содержимое буфера
 
     public int Size(); // текущий размер массива 
 
@@ -24,6 +27,7 @@ public class Queue<T>
 {
     private readonly List<T> list;
     private int dequeue_status;
+    private T bufferValue;
 
     public const int DEQUEUE_OK = 0; // успешно
     public const int DEQUEUE_EMP = 1; // очередь пустая
@@ -33,6 +37,7 @@ public class Queue<T>
     {
         list = new List<T>(); // инициализация внутреннего хранилища очереди
         dequeue_status = DEQUEUE_EMP;
+        bufferValue = default(T);
     } 
 
 // команды
@@ -41,19 +46,25 @@ public class Queue<T>
         list.Add(item); // вставка в хвост
     }
 
-// запросы
-    public T Dequeue()
+    public void Dequeue()
     {
         // выдача из головы
         if(Size() == 0)
         {
             dequeue_status = DEQUEUE_EMP;
-            return default(T);
         }
-        var head = list[0];
-        list.RemoveAt(0);
-        dequeue_status = DEQUEUE_OK;
-        return head;
+        else 
+        {
+            bufferValue = list[0];
+            list.RemoveAt(0);
+            dequeue_status = DEQUEUE_OK;
+        }
+    }
+
+// запросы
+    public T Get()
+    {
+        return bufferValue;
     }
 
     public int Size()
