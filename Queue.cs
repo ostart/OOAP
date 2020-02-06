@@ -10,16 +10,17 @@ abstract class Queue<T>
     public void Enqueue(T item);
 
     // предусловие: очередь не пуста
-    // постусловие: из очереди в буфер перемещен головной элемент. Размер очереди уменьшен на единицу
+    // постусловие: из головы очереди удален элемент
     public void Dequeue();
 
 // запросы
-    public T Get(); // содержимое буфера
+    public T Get(); // содержимое головы очереди
 
     public int Size(); // текущий размер массива 
 
 // запросы статусов (возможные значения статусов)
     public int Get_Dequeue_status(); // успешно; очередь пуста
+    public int Get_Get_status(); // успешно; очередь пуста
 */
 
 using System.Collections.Generic;
@@ -27,17 +28,19 @@ public class Queue<T>
 {
     private readonly List<T> list;
     private int dequeue_status;
-    private T bufferValue;
+    private int get_status;
 
     public const int DEQUEUE_OK = 0; // успешно
     public const int DEQUEUE_EMP = 1; // очередь пустая
+    public const int GET_OK = 0; // успешно
+    public const int GET_EMP = 1; // очередь пустая
 
 // конструктор
     public Queue()
     {
         list = new List<T>(); // инициализация внутреннего хранилища очереди
         dequeue_status = DEQUEUE_EMP;
-        bufferValue = default(T);
+        get_status = GET_EMP;
     } 
 
 // команды
@@ -50,12 +53,9 @@ public class Queue<T>
     {
         // выдача из головы
         if(Size() == 0)
-        {
             dequeue_status = DEQUEUE_EMP;
-        }
         else 
         {
-            bufferValue = list[0];
             list.RemoveAt(0);
             dequeue_status = DEQUEUE_OK;
         }
@@ -64,7 +64,14 @@ public class Queue<T>
 // запросы
     public T Get()
     {
-        return bufferValue;
+        if(Size() == 0)
+        {
+            get_status = GET_EMP;
+            return default(T);
+        }
+
+        dequeue_status = DEQUEUE_OK;
+        return list[0];
     }
 
     public int Size()
@@ -76,5 +83,10 @@ public class Queue<T>
     public int Get_Dequeue_status()
     {
         return dequeue_status;
+    }
+
+    public int Get_Get_status()
+    {
+        return get_status;
     }
 }
