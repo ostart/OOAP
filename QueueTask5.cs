@@ -14,6 +14,7 @@ abstract class Queue<T>
     public void Dequeue();
 
 // запросы
+    // предусловие: очередь не пуста
     public T Get(); // содержимое головы очереди
 
     public int Size(); // текущий размер массива 
@@ -24,7 +25,7 @@ abstract class Queue<T>
 */
 
 using System.Collections.Generic;
-public class Queue<T>
+public class QueueTask5<T>
 {
     private readonly List<T> list;
     private int dequeue_status;
@@ -36,7 +37,7 @@ public class Queue<T>
     public const int GET_EMP = 1; // очередь пустая
 
 // конструктор
-    public Queue()
+    public QueueTask5()
     {
         list = new List<T>(); // инициализация внутреннего хранилища очереди
         dequeue_status = DEQUEUE_EMP;
@@ -69,7 +70,7 @@ public class Queue<T>
             return default(T);
         }
 
-        dequeue_status = DEQUEUE_OK;
+        get_status = GET_OK;
         return list[0];
     }
 
