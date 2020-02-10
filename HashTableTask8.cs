@@ -21,7 +21,7 @@ abstract class HashTable
     public int Get_Put_status(); // успешно; хэш-таблица переполнена
 */
 
-public class HashTable
+public class HashTableTask8
 {
     private int size;
     const int step = 3;
@@ -35,7 +35,7 @@ public class HashTable
 
 
 // конструктор
-    public HashTable(int maxSize)
+    public HashTableTask8(int maxSize)
     {
         size = maxSize;
         slots = new string[size];

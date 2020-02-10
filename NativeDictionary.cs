@@ -10,6 +10,9 @@ abstract class NativeDictionary<T>
     // постусловие: элемент добавлен в словарь
     public void Put(string key, T value);
 
+    // постусловие: ключ удаляется вместе со своим значением
+    public void Remove(string key);
+
 // запросы
     // предусловие: словарь содержит ключ
     public T Get(string key); // вернуть значение если ключ имеется
@@ -86,6 +89,16 @@ public class NativeDictionary<T>
     public int Size()
     {
         return size;
+    }
+
+    public void Remove(string value)
+    {
+        var index = SeekSlot(value);
+        if (index != -1)
+        {
+            slots[index] = null;
+            values[index] = default(T);
+        }
     }
 
 // запросы статусов (возможные значения статусов)
