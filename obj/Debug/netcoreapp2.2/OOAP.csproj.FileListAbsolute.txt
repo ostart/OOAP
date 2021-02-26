@@ -9,3 +9,4 @@ d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.dll
 d:\Github\OOAP\bin\Debug\netcoreapp2.2\OOAP.pdb
 d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.dll
 d:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.pdb
+D:\Github\OOAP\obj\Debug\netcoreapp2.2\OOAP.genruntimeconfig.cache
