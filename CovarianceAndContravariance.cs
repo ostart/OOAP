@@ -1,3 +1,5 @@
+using System;
+
 // Иерархия классов
 public class Small {}
 public class Big: Small {}
